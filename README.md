@@ -1,2 +1,2 @@
 # project
-peoject
+Par gramatu 'Velniņi'
