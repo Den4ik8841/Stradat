@@ -1,1 +1,195 @@
-privet
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velniņi — Rūdolfs Blaumanis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .tab-button {
+      transition: all 0.3s;
+    }
+    .tab-button.active {
+      border-bottom: 4px solid #b91c1c;
+      color: #b91c1c;
+      font-weight: 600;
+    }
+    .book-cover {
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+    }
+  </style>
+</head>
+<body class="bg-[#f8f1e3] text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-[#4a2c1a] text-white py-6">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-4xl font-bold">Velniņi</h1>
+          <p class="text-amber-200 mt-1">Rūdolfs Blaumanis • 1895</p>
+        </div>
+        <div class="text-right">
+          <span class="text-3xl">🔥</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="max-w-6xl mx-auto px-6 py-8">
+    <div class="flex flex-col lg:flex-row gap-10">
+
+      <!-- Left Sidebar - Book Cover -->
+      <div class="lg:w-1/3">
+        <div class="sticky top-8">
+          <img src="https://www.janisroze.lv/media/catalog/product/cache/4284a13b19f47b6bc18520d6ff95659f/image/1808f6d6/velnini.jpg" 
+               alt="Velniņi grāmatas vāks" 
+               class="book-cover w-full rounded-lg">
+          
+          <div class="mt-6 bg-white p-6 rounded-xl shadow-md">
+            <div class="grid grid-cols-2 gap-4 text-center">
+              <div>
+                <p class="text-sm text-gray-500">Reitings</p>
+                <p class="text-3xl font-bold text-amber-800">4.7</p>
+              </div>
+              <div>
+                <p class="text-sm text-gray-500">Gads</p>
+                <p class="text-3xl font-bold text-amber-800">1895</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs Section -->
+      <div class="lg:w-2/3">
+        <!-- Tab Buttons -->
+        <div class="flex border-b border-gray-300 mb-8 overflow-x-auto">
+          <button onclick="openTab(0)" class="tab-button active px-8 py-4 text-lg" id="tab0">
+            <i class="fas fa-book mr-2"></i> Par grāmatu
+          </button>
+          <button onclick="openTab(1)" class="tab-button px-8 py-4 text-lg" id="tab1">
+            <i class="fas fa-user mr-2"></i> Par autoru
+          </button>
+          <button onclick="openTab(2)" class="tab-button px-8 py-4 text-lg" id="tab2">
+            <i class="fas fa-quote-left mr-2"></i> Fragmenti
+          </button>
+          <button onclick="openTab(3)" class="tab-button px-8 py-4 text-lg" id="tab3">
+            <i class="fas fa-star mr-2"></i> Atsauksmes
+          </button>
+          <button onclick="openTab(4)" class="tab-button px-8 py-4 text-lg" id="tab4">
+            <i class="fas fa-info-circle mr-2"></i> Fakti
+          </button>
+        </div>
+
+        <!-- Tab Contents -->
+
+        <!-- Par grāmatu -->
+        <div id="content0" class="tab-content active">
+          <h2 class="text-3xl font-bold mb-6 text-amber-900">Par grāmatu</h2>
+          <p class="text-lg leading-relaxed text-gray-700">
+              Pasaka "Velniņi" stāsta par diviem nerātniem velniņiem, kuri izbēg no elles un nonāk cilvēku pasaulē, lai darītu ļaunumu.
+              Rūdolfs Blaumanis to uzrakstīja 1907. gadā. 
+            Pasaka stāsta par diviem nerātniem velniņiem, kuri izbēg no elles un nonāk cilvēku pasaulē, lai darītu ļaunumu. 
+            Taču viss, ko viņi mēģina, beidzas ar labu.
+          </p>
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-2xl">
+              <h4 class="font-semibold mb-2">Žanrs</h4>
+              <p class="text-gray-600">Literārā pasaka, humors</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl">
+              <h4 class="font-semibold mb-2">Apjoms</h4>
+              <p class="text-gray-600">Īsa pasaka (~30–60 lpp.)</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl">
+              <h4 class="font-semibold mb-2">Galvenās tēmas</h4>
+              <p class="text-gray-600">Ļaunums un labestība, pārmaiņas, humors</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Par autoru -->
+        <div id="content1" class="tab-content">
+          <h2 class="text-3xl font-bold mb-6 text-amber-900">Rūdolfs Blaumanis (1863–1908)</h2>
+          <div class="prose prose-lg">
+            <p>Viens no izcilākajiem latviešu rakstniekiem, dzejniekiem un dramaturgiem. Blaumanis ir pazīstams ar reālistiskiem stāstiem par latviešu zemnieku dzīvi, bet „Velniņi” ir viņa slavenākā literārā pasaka bērniem un pieaugušajiem.</p>
+            <p>Viņš tiek uzskatīts par pirmo īsto latviešu literārās pasakas autoru.</p>
+          </div>
+        </div>
+
+        <!-- Fragmenti -->
+        <div id="content2" class="tab-content">
+          <h2 class="text-3xl font-bold mb-6 text-amber-900">Fragments no pasakas</h2>
+          <div class="bg-[#f8f1e3] border-l-4 border-amber-800 p-8 italic text-lg leading-relaxed">
+            „Reiz ellē dzīvoja divi velniņi. Viņiem bija apnikusi elles tumsa. Velniņi gribēja redzēt cilvēku zemi...”
+          </div>
+          <p class="mt-6 text-gray-600">— Rūdolfs Blaumanis, „Velniņi”</p>
+        </div>
+
+        <!-- Atsauksmes -->
+        <div id="content3" class="tab-content">
+          <h2 class="text-3xl font-bold mb-6 text-amber-900">Lasītāju atsauksmes</h2>
+          <div class="space-y-8">
+            <div class="bg-white p-6 rounded-2xl">
+              <p class="italic">"Brīnišķīga pasaka bērniem un pieaugušajiem. Ļoti gudra un ar humoru!"</p>
+              <p class="mt-4 text-sm text-gray-500">— Inese, 2024</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl">
+              <p class="italic">"Klasika, ko vērts lasīt kopā ar bērniem. Animācijas filma arī lieliska."</p>
+              <p class="mt-4 text-sm text-gray-500">— Andris, 2025</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fakti -->
+        <div id="content4" class="tab-content">
+          <h2 class="text-3xl font-bold mb-6 text-amber-900">Interesanti fakti</h2>
+          <ul class="space-y-4 text-lg">
+            <li class="flex gap-3"><span class="text-amber-800">★</span> Pasaka uzrakstīta 1907. gadā.</li>
+            <li class="flex gap-3"><span class="text-amber-800">★</span> 1999. gadā pēc motīviem uzņemta animācijas filma (rež. Inga Prauliņa)</li>
+            <li class="flex gap-3"><span class="text-amber-800">★</span> Tā ir viena no pirmajām oriģinālajām latviešu literārajām pasakām</li>
+            <li class="flex gap-3"><span class="text-amber-800">★</span> Velniņi cenšas darīt ļaunumu, bet viss iznāk labi</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-[#4a2c1a] text-amber-100 py-10 mt-16">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p>„Velniņi” — Rūdolfa Blaumaņa klasiskā latviešu pasaka</p>
+      <p class="text-sm mt-2">Kopē kodu, saglabā kā .html failu un atver pārlūkā</p>
+    </div>
+  </footer>
+
+  <script>
+    function openTab(tabIndex) {
+      document.querySelectorAll('.tab-content').forEach(content => {
+        content.classList.remove('active');
+      });
+      document.querySelectorAll('.tab-button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById('content' + tabIndex).classList.add('active');
+      document.getElementById('tab' + tabIndex).classList.add('active');
+    }
+
+    window.onload = function() {
+      openTab(0);
+    };
+  </script>
+</body>
+</html>
