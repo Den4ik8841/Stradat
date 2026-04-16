@@ -10,26 +10,70 @@
     body {
       font-family: 'Georgia', serif;
     }
+
     .tab-content {
       display: none;
+      animation: fadeInUp 0.6s ease forwards;
     }
     .tab-content.active {
       display: block;
     }
+
     .tab-button {
-      transition: all 0.3s;
+      transition: all 0.4s ease;
     }
     .tab-button.active {
       border-bottom: 4px solid #b91c1c;
       color: #b91c1c;
       font-weight: 600;
+      transform: translateY(-3px);
     }
+
     .book-cover {
       box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.4);
+      transition: all 0.6s ease;
+    }
+    .book-cover:hover {
+      transform: scale(1.06) rotate(3deg);
+      box-shadow: 0 35px 60px -15px rgb(0 0 0 / 0.5);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes welcomePop {
+      0% { opacity: 0; transform: scale(0.6); }
+      50% { transform: scale(1.08); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .welcome {
+      animation: welcomePop 1.1s ease forwards;
     }
   </style>
 </head>
 <body class="bg-[#f8f1e3] text-gray-800">
+
+  <!-- Welcome Message -->
+  <div id="welcomeOverlay" class="fixed inset-0 bg-black/70 hidden flex items-center justify-center z-50 transition-opacity duration-700">
+    <div class="welcome bg-white rounded-3xl p-10 max-w-md text-center shadow-2xl">
+      <div class="text-7xl mb-4">👹✨</div>
+      <h2 class="text-3xl font-bold text-amber-900">Laipni lūgti!</h2>
+      <p class="text-xl text-gray-700 mt-3">"Velniņi" gaida tevi...</p>
+      <button onclick="closeWelcome()" 
+              class="mt-8 px-10 py-4 bg-[#b91c1c] hover:bg-red-700 text-white text-lg rounded-full transition-all duration-300">
+        Atvērt pasaku →
+      </button>
+    </div>
+  </div>
 
   <!-- Header -->
   <header class="bg-[#4a2c1a] text-white py-6">
@@ -37,10 +81,10 @@
       <div class="flex items-center justify-between">
         <div>
           <h1 class="text-4xl font-bold">Velniņi</h1>
-          <p class="text-amber-200 mt-1">Rūdolfs Blaumanis • 1895</p>
+          <p class="text-amber-200 mt-1">Rūdolfs Blaumanis • 1907</p>
         </div>
-        <div class="text-right">
-          <span class="text-3xl">Danila Nikitins, Ernests Rubensis un Pavels Krišjanis</span>
+        <div class="text-right text-amber-100">
+          <span class="text-lg">Danila Nikitins, Ernests Rubensis un Pavels Krišjanis</span>
         </div>
       </div>
     </div>
@@ -74,7 +118,6 @@
 
       <!-- Tabs Section -->
       <div class="lg:w-2/3">
-        <!-- Tab Buttons -->
         <div class="flex border-b border-gray-300 mb-8 overflow-x-auto">
           <button onclick="openTab(0)" class="tab-button active px-8 py-4 text-lg" id="tab0">
             <i class="fas fa-book mr-2"></i> Par grāmatu
@@ -94,15 +137,11 @@
         </div>
 
         <!-- Tab Contents -->
-
-        <!-- Par grāmatu -->
         <div id="content0" class="tab-content active">
           <h2 class="text-3xl font-bold mb-6 text-amber-900">Par grāmatu</h2>
           <p class="text-lg leading-relaxed text-gray-700">
-              Pasaka "Velniņi" stāsta par diviem nerātniem velniņiem, kuri izbēg no elles un nonāk cilvēku pasaulē, lai darītu ļaunumu.
-              Rūdolfs Blaumanis to uzrakstīja 1907. gadā. 
-            Pasaka stāsta par diviem nerātniem velniņiem, kuri izbēg no elles un nonāk cilvēku pasaulē, lai darītu ļaunumu. 
-            Taču viss, ko viņi mēģina, beidzas ar labu.
+            Pasaka "Velniņi" stāsta par diviem nerātniem velniņiem, kuri izbēg no elles un nonāk cilvēku pasaulē, lai darītu ļaunumu. 
+            Taču viss, ko viņi mēģina, beidzas ar labu. Rūdolfs Blaumanis to uzrakstīja 1907. gadā.
           </p>
           <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-white p-6 rounded-2xl">
@@ -115,30 +154,26 @@
             </div>
             <div class="bg-white p-6 rounded-2xl">
               <h4 class="font-semibold mb-2">Galvenās tēmas</h4>
-              <p class="text-gray-600">Ļaunums un labestība, pārmaiņas, humors</p>
+              <p class="text-gray-600">Ļaunums un labestība, humors</p>
             </div>
           </div>
         </div>
 
-        <!-- Par autoru -->
         <div id="content1" class="tab-content">
           <h2 class="text-3xl font-bold mb-6 text-amber-900">Rūdolfs Blaumanis (1863–1908)</h2>
           <div class="prose prose-lg">
-            <p>Viens no izcilākajiem latviešu rakstniekiem, dzejniekiem un dramaturgiem. Blaumanis ir pazīstams ar reālistiskiem stāstiem par latviešu zemnieku dzīvi, bet „Velniņi” ir viņa slavenākā literārā pasaka bērniem un pieaugušajiem.</p>
-            <p>Viņš tiek uzskatīts par pirmo īsto latviešu literārās pasakas autoru.</p>
+            <p>Viens no izcilākajiem latviešu rakstniekiem. Pazīstams ar reālistiskiem stāstiem un literārajām pasakām. „Velniņi” ir viņa populārākā pasaka.</p>
           </div>
         </div>
 
-        <!-- Fragmenti -->
         <div id="content2" class="tab-content">
           <h2 class="text-3xl font-bold mb-6 text-amber-900">Fragments no pasakas</h2>
           <div class="bg-[#f8f1e3] border-l-4 border-amber-800 p-8 italic text-lg leading-relaxed">
             „Reiz ellē dzīvoja divi velniņi. Viņiem bija apnikusi elles tumsa. Velniņi gribēja redzēt cilvēku zemi...”
           </div>
-          <p class="mt-6 text-gray-600">— Rūdolfs Blaumanis, „Velniņi”</p>
+          <p class="mt-6 text-gray-600">— Rūdolfs Blaumanis</p>
         </div>
 
-        <!-- Atsauksmes -->
         <div id="content3" class="tab-content">
           <h2 class="text-3xl font-bold mb-6 text-amber-900">Lasītāju atsauksmes</h2>
           <div class="space-y-8">
@@ -147,20 +182,19 @@
               <p class="mt-4 text-sm text-gray-500">— Inese, 2024</p>
             </div>
             <div class="bg-white p-6 rounded-2xl">
-              <p class="italic">"Klasika, ko vērts lasīt kopā ar bērniem. Animācijas filma arī lieliska."</p>
+              <p class="italic">"Klasika, ko vērts lasīt kopā ar bērniem."</p>
               <p class="mt-4 text-sm text-gray-500">— Andris, 2025</p>
             </div>
           </div>
         </div>
 
-        <!-- Fakti -->
         <div id="content4" class="tab-content">
           <h2 class="text-3xl font-bold mb-6 text-amber-900">Interesanti fakti</h2>
           <ul class="space-y-4 text-lg">
-            <li class="flex gap-3"><span class="text-amber-800">★</span> Pasaka uzrakstīta 1907. gadā.</li>
-            <li class="flex gap-3"><span class="text-amber-800">★</span> 1999. gadā pēc motīviem uzņemta animācijas filma (rež. Inga Prauliņa)</li>
-            <li class="flex gap-3"><span class="text-amber-800">★</span> Tā ir viena no pirmajām oriģinālajām latviešu literārajām pasakām</li>
-            <li class="flex gap-3"><span class="text-amber-800">★</span> Velniņi cenšas darīt ļaunumu, bet viss iznāk labi</li>
+            <li class="flex gap-3"><span class="text-amber-800">★</span> Pasaka uzrakstīta 1907. gadā</li>
+            <li class="flex gap-3"><span class="text-amber-800">★</span> 1999. gadā uzņemta animācijas filma</li>
+            <li class="flex gap-3"><span class="text-amber-800">★</span> Viena no pirmajām oriģinālajām latviešu literārajām pasakām</li>
+            <li class="flex gap-3"><span class="text-amber-800">★</span> Velniņi grib darīt ļaunu, bet iznāk labs</li>
           </ul>
         </div>
       </div>
@@ -171,6 +205,7 @@
   <footer class="bg-[#4a2c1a] text-amber-100 py-10 mt-16">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <p>„Velniņi” — Rūdolfa Blaumaņa klasiskā latviešu pasaka</p>
+      <p class="text-sm mt-2">Danila Nikitins, Ernests Rubensis un Pavels Krišjanis</p>
     </div>
   </footer>
 
@@ -182,11 +217,27 @@
       document.querySelectorAll('.tab-button').forEach(btn => {
         btn.classList.remove('active');
       });
+
       document.getElementById('content' + tabIndex).classList.add('active');
       document.getElementById('tab' + tabIndex).classList.add('active');
     }
 
+    function closeWelcome() {
+      const overlay = document.getElementById('welcomeOverlay');
+      overlay.style.opacity = '0';
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+      }, 700);
+    }
+
     window.onload = function() {
+      // Parādām sveiciena logu
+      setTimeout(() => {
+        const overlay = document.getElementById('welcomeOverlay');
+        overlay.classList.remove('hidden');
+        overlay.style.opacity = '1';
+      }, 500);
+
       openTab(0);
     };
   </script>
